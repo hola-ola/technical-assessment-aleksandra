@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-const { data, fetchNextPage, hasNextPage } = usePokemonList()
+import useCharactersList from "~/composables/useCharactersList.vue";
+const { data, fetchNextPage, hasNextPage } = useCharactersList()
 
 const isGrid = ref(true)
 const styleGrid = {

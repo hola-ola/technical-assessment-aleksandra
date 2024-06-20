@@ -4,7 +4,7 @@ export default function useCharactersList() {
     return useInfiniteQuery({
         queryKey: ['characters-list', 'character'],
         queryFn: ({ pageParam = 1 }) => {
-            return $pokemon<{
+            return $rickAndMorty<{
                 count: number
                 next: string | null
                 previous: string | null
