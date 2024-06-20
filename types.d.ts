@@ -279,3 +279,7 @@ interface Pokemon {
   types: Type[]
   weight: number
 }
+
+interface Character {
+  name: srting,
+}

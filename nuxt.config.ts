@@ -12,6 +12,7 @@ export default defineNuxtConfig({
     'nuxt-api-party',
     '@nuxt/image',
     'nuxt-icon',
+    '@element-plus/nuxt'
   ],
 
   pinia: {
@@ -84,6 +85,11 @@ export default defineNuxtConfig({
       pokemon: {
         url: 'https://pokeapi.co/api/v2',
       },
+      rickAndMorty: {
+        url: 'https://rickandmortyapi.com/api'
+      }
     },
   },
+
+  elementPlus: { /** Options */ }
 })

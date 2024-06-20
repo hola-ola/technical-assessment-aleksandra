@@ -1,5 +1,5 @@
 <template>
-  <page title="Pokemon" sub-title="Pokeball" icon="mdi:pokeball"/>
+  <page title="Rick and Morty"/>
 </template>
 <script setup lang="ts">
 </script>
