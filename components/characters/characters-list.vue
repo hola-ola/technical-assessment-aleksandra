@@ -16,6 +16,9 @@ const props = defineProps({
   styleItem: {
     type: String,
   },
+  path: {
+    type: String,
+  },
 });
 </script>
 <template>
@@ -27,12 +30,12 @@ const props = defineProps({
       :class="styleList"
     >
       <li
-        v-for="pokemon in page.results"
-        :key="pokemon.name"
+        v-for="character in page.results"
+        :key="character.name"
         class="w-[25ch]"
         :class="styleItem"
       >
-        <pokemon-info :name="pokemon.name" />
+        <characters-character-info :character="character" />
       </li>
     </ul>
     <div class="flex items-center justify-center p-20">

@@ -11,10 +11,12 @@
     "start": "node .output/server/index.mjs",
     "start:generate": "npx serve .output/public",
     "lint": "eslint .",
-    "typecheck": "vue-tsc --noEmit"
+    "typecheck": "vue-tsc --noEmit",
+    "prettier": "npx prettier . --write"
   },
   "dependencies": {
-    "@tanstack/vue-query": "^5.45.0"
+    "@tanstack/vue-query": "^5.45.0",
+    "prettier": "^3.3.2"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.21.1",

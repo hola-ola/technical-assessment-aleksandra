@@ -1,10 +1,10 @@
 import { useInfiniteQuery } from "@tanstack/vue-query";
 
-export default function usePokemonList() {
+export default function useCharactersList() {
   return useInfiniteQuery({
-    queryKey: ["pokemon-list", "pokemon"],
+    queryKey: ["characters-list", "character"],
     queryFn: ({ pageParam = 1 }) => {
-      return $pokemon<{
+      return $rickAndMorty<{
         count: number;
         next: string | null;
         previous: string | null;
@@ -12,7 +12,7 @@ export default function usePokemonList() {
           name: string;
           url: string;
         }[];
-      }>(`pokemon?limit=20&offset=${(pageParam - 1) * 20}`);
+      }>(`character`);
     },
     getNextPageParam: (lastPage, allPages) => {
       return lastPage.next ? allPages.length + 1 : undefined;
