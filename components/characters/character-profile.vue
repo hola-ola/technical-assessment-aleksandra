@@ -5,8 +5,9 @@ const activeName = ref("first");
 const route = useRoute();
 const id = route?.params?.id;
 
-const { data: character } = await useFetch(`https://rickandmortyapi.com/api/character/${id}`);
-
+const { data: character } = await useFetch(
+  `https://rickandmortyapi.com/api/character/${id}`,
+);
 </script>
 
 <template>

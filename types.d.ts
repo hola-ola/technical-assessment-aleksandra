@@ -303,12 +303,12 @@ interface Character extends RickAndMortyBasic {
   type: string;
 }
 
-interface Episode extends RickAndMortyBasic{
+interface Episode extends RickAndMortyBasic {
   air_date: string;
   residents: string[];
 }
 
-interface Location extends RickAndMortyBasic{
+interface Location extends RickAndMortyBasic {
   type: string;
   dimension: string;
   characters: string[];
