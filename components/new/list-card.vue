@@ -7,7 +7,6 @@ const props = defineProps({
 const navigate = async function () {
   if (props.character?.id) {
     const route = useRoute();
-    console.log("route.name", route.name);
     await navigateTo({
       path: `/${route.name}/${props.character.id}`,
       params: { id: props.character.id },
@@ -23,7 +22,9 @@ const navigate = async function () {
         {{ character?.name ?? "No name" }}
       </h2>
       <div class="card__text" v-if="character?.species?.length">
-        <p>Species: {{ character?.species }}</p>
+        <p>{{ character?.species }}</p>
+        <p>{{ character?.gender }}</p>
+        <p>{{ character?.status }}</p>
       </div>
       <div class="card__text" v-if="character?.height">
         <p>Height: {{ character?.height }}</p>
@@ -46,7 +47,7 @@ const navigate = async function () {
 
 <style lang="scss" scoped>
 .card {
-  @apply border-4 border-indigo-700 flex flex-row justify-between;
+  @apply border-2 border-pink-700 flex flex-row justify-between;
   @apply w-2/5 bg-pink-700 hover:cursor-pointer rounded-xl;
 
   &__content {
@@ -54,11 +55,11 @@ const navigate = async function () {
   }
 
   &__image {
-    @apply h-48;
+    @apply h-48 border-l-2 border-l-pink-700;
   }
 
   h2 {
-    @apply font-bold text-lg capitalize text-indigo-700 pb-4;
+    @apply font-bold text-lg capitalize text-black pb-4;
   }
 }
 

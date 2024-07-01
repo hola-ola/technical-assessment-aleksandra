@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import CharacterLocation from "~/components/new/character-location.vue";
-import CharacterEpisode from "~/components/characters/character-episode.vue";
+import Location from "~/components/new/location.vue";
+import Episode from "~/components/new/episode.vue";
 
-const activeName = ref("first");
 const route = useRoute();
 const id = route?.params?.id;
 
@@ -31,6 +30,12 @@ const items = [
 </script>
 
 <template>
+  <header class="header">
+    <h1>
+  Rick and Morty
+    </h1>
+    <nuxt-link to="/rick-and-morty" class="link"> Go back to all the characters </nuxt-link>
+  </header>
   <div class="profile">
     <NuxtImg :src="character?.image" class="profile__image" />
 
@@ -92,7 +97,7 @@ const items = [
 <style lang="scss" scoped>
 .profile {
   &__image {
-    @apply rounded-3xl w-1/5 m-auto mt-16 mb-8;
+    @apply rounded-3xl w-1/5 m-auto mt-16 mb-8 border-2 border-[#00C16A];
   }
 
   &__tabs {

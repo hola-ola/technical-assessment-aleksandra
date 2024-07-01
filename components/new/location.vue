@@ -11,7 +11,8 @@ const { data: location } = await useFetch(props.url);
 
 <template>
   <div class="location">
-    {{ location.name }} | Type: {{ location.type }} | Dimension: {{ location.dimension }}
+    {{ location.name }} | Type: {{ location.type }} | Dimension:
+    {{ location.dimension }}
   </div>
 </template>
 

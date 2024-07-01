@@ -1,20 +1,34 @@
 <template>
-  <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
-    <div class="flex items-center flex-shrink-0 text-white mr-6">
-      <span class="font-semibold text-xl tracking-tight"
-        >Your favorite cartoon characters</span
-      >
+  <nav>
+    <div class="top">
+      <span class="top__title">Your favorite cartoon characters</span>
     </div>
-    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-      <div class="ml-auto">
-        <a
-          href="#"
-          class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
-        >
-          <Icon name="mdi:dice" class="mr-2 text-xl" />
-          <span>Random encounter</span>
-        </a>
-      </div>
+    <div>
+      <a href="#" class="link">
+        <Icon name="mdi:dice" class="link__icon" />
+        <span>Random encounter</span>
+      </a>
     </div>
   </nav>
 </template>
+
+<style lang="scss" scoped>
+nav {
+  @apply flex items-center justify-between flex-wrap bg-[#00C16A] p-10;
+}
+.top {
+  @apply text-white;
+
+  &__title {
+    @apply font-semibold text-2xl tracking-tight;
+  }
+}
+.link {
+  @apply text-sm p-4 rounded-2xl text-white border border-white;
+  @apply hover:border-transparent hover:text-[#00C16A] hover:bg-white;
+
+  &__icon {
+    @apply mr-2 text-xl;
+  }
+}
+</style>

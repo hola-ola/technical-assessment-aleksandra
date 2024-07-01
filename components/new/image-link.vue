@@ -25,7 +25,8 @@ const props = defineProps<{
   @apply cursor-pointer;
 
   .image {
-    @apply rounded-xl opacity-70 hover:opacity-100;
+    @apply rounded-xl opacity-70;
+    @apply hover:opacity-100 hover:border-8 hover:border-[#00C16A];
   }
   p {
     @apply text-lg mt-4 text-center;

@@ -10,7 +10,7 @@ const props = defineProps({
 <template>
   <article>
     <header class="header">
-      <h1 class="">
+      <h1>
         {{ title }}
       </h1>
       <nuxt-link to="/" class="link"> Go back to the home page </nuxt-link>
@@ -25,10 +25,13 @@ const props = defineProps({
 main {
   @apply px-10;
 }
+
+</style>
+<style lang="scss">
 .header {
-  @apply flex justify-center border-b-4 border-slate-500 p-8 bg-slate-950 items-center;
+  @apply flex justify-center p-8 bg-slate-950 items-center text-lg;
   h1 {
-    @apply text-xl text-white;
+    @apply text-white;
   }
   .link {
     @apply ml-auto text-white;
