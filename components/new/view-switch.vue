@@ -9,6 +9,15 @@ const updateDefaultView = function () {
   localStorage.setItem(`display-${route.name}`, isGrid.value ? "grid" : "list");
   emit("view-changed", isGrid.value);
 };
+
+const applyView = function () {
+  const display = localStorage.getItem(`display-${route.name}`);
+  isGrid.value = !display || display === "grid";
+};
+
+onBeforeMount(() => {
+  applyView();
+});
 </script>
 
 <template>

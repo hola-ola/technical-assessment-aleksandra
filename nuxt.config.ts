@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "@vite-pwa/nuxt",
     "@nuxt/eslint",
+    "@nuxt/content",
     "@nuxt/ui",
     "nuxt-api-party",
     "@nuxt/image",
@@ -105,4 +106,11 @@ export default defineNuxtConfig({
   elementPlus: {
     /** Options */
   },
+
+  content: {
+    experimental: {
+      search: true,
+    },
+  },
+  ssr: false,
 });

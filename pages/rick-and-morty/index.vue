@@ -18,10 +18,8 @@ const updatePage = function (value: number) {
 
 <template>
   <page title="Rick and Morty">
-    <collection
-      v-if="characters?.results"
-      :data="characters?.results"
-    ></collection>
+    <collection v-if="characters?.results" :data="characters?.results">
+    </collection>
     <pagination
       :page-count="20"
       :total="characters?.info?.count"

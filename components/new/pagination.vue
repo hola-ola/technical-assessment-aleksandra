@@ -28,6 +28,7 @@ watch(
 
 <template>
   <UPagination
+    class="pagination"
     v-model="currentPage"
     :page-count="pageCount"
     :total="total"
@@ -59,4 +60,8 @@ watch(
   </UPagination>
 </template>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.pagination {
+  @apply py-20 justify-center;
+}
+</style>

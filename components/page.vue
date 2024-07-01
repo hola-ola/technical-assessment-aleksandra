@@ -22,6 +22,9 @@ const props = defineProps({
 </template>
 
 <style lang="scss" scoped>
+main {
+  @apply px-10;
+}
 .header {
   @apply flex justify-center border-b-4 border-slate-500 p-8 bg-slate-950 items-center;
   h1 {
