@@ -23,9 +23,8 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 main {
-  @apply px-10;
+  @apply px-10 pb-24;
 }
-
 </style>
 <style lang="scss">
 .header {

@@ -1,10 +1,7 @@
 <script setup lang="ts">
-import Collection from "~/components/new/collection.vue";
-import Pagination from "~/components/new/pagination.vue";
-import GridCard from "~/components/new/grid-card.vue";
-import GetCharacter from "~/components/new/get-character.vue";
-
+import { ref } from "vue";
 const offset = ref(20);
+const loading = ref(false);
 
 const { data: characters } = await useFetch(
   `https://pokeapi.co/api/v2/pokemon/`,
@@ -13,27 +10,35 @@ const { data: characters } = await useFetch(
   },
 );
 
-const updateOffset = function (value: number) {
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+const updateOffset = async function (value: number) {
   offset.value = value * 20;
+  loading.value = true;
+  await sleep(100);
+  loading.value = false;
 };
 </script>
 
 <template>
   <page title="Pokemon">
     <collection
+        :key="Number(offset)"
       v-slot="slotProps"
       v-if="characters?.results"
       :data="characters?.results"
       uses-slot
     >
       <div>
-        <get-character
+        <get-pokemon
+            :loading="loading"
           v-if="slotProps.url"
           :url="slotProps.url as string"
           :is-grid="!!slotProps.isGrid"
         />
       </div>
     </collection>
+
     <pagination
       :page-count="20"
       :total="characters?.count"

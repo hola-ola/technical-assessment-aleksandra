@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import Location from "~/components/new/location.vue";
-import Episode from "~/components/new/episode.vue";
-
 const route = useRoute();
 const id = route?.params?.id;
 
@@ -31,10 +28,10 @@ const items = [
 
 <template>
   <header class="header">
-    <h1>
-  Rick and Morty
-    </h1>
-    <nuxt-link to="/rick-and-morty" class="link"> Go back to all the characters </nuxt-link>
+    <h1>Rick and Morty</h1>
+    <nuxt-link to="/rick-and-morty" class="link">
+      Go back to all the characters
+    </nuxt-link>
   </header>
   <div class="profile">
     <NuxtImg :src="character?.image" class="profile__image" />

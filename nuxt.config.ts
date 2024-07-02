@@ -106,11 +106,4 @@ export default defineNuxtConfig({
   elementPlus: {
     /** Options */
   },
-
-  content: {
-    experimental: {
-      search: true,
-    },
-  },
-  ssr: false,
 });

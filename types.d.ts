@@ -301,6 +301,7 @@ interface Character extends RickAndMortyBasic {
   species: string;
   status: string;
   type: string;
+  gender?: string;
 }
 
 interface Episode extends RickAndMortyBasic {

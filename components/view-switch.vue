@@ -26,8 +26,6 @@ onBeforeMount(() => {
     <UToggle
       v-model="isGrid"
       size="lg"
-      on-text="Grid"
-      inactive-text="List"
       @change="updateDefaultView"
     />
     <p>Grid</p>

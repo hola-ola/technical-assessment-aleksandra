@@ -6,10 +6,12 @@ const props = defineProps({
 const navigate = async function () {
   if (props.character?.id) {
     const route = useRoute();
-    await navigateTo({
-      path: `/${route.name}/${props.character.id}`,
-      params: { id: props.character.id },
-    });
+    if (route.name === "rick-and-morty") {
+      await navigateTo({
+        path: `/${route.name}/${props.character.id}`,
+        params: { id: props.character.id },
+      });
+    }
   }
 };
 </script>
@@ -26,11 +28,9 @@ const navigate = async function () {
       <p>Species</p>
       <span>{{ character?.species }}</span>
     </div>
-    <div class="card__text" v-if="character?.height">
-      <p>Height: {{ character?.height }} | Weight: {{ character?.weight }}</p>
-    </div>
-    <div class="card__text" v-if="character?.weight">
-      <p>Weight: {{ character?.weight }}</p>
+    <div class="card__text">
+      <p v-if="character?.height">Height: {{ character?.height }}</p>
+      <p v-if="character?.weight">Weight: {{ character?.weight }}</p>
     </div>
     <div class="card__image">
       <NuxtImg
@@ -46,10 +46,11 @@ const navigate = async function () {
 <style lang="scss" scoped>
 .card {
   @apply border-2 border-blue-800 flex flex-col justify-between;
-  @apply h-96 bg-gray-100 hover:cursor-pointer rounded-xl;
+  @apply max-h-96 bg-gray-100 hover:cursor-pointer rounded-xl;
 
   &__header {
-    @apply p-3 flex items-center justify-center border-b-2 border-blue-800 rounded-t-lg bg-blue-800 text-gray-100;
+    @apply p-3 flex items-center justify-center;
+    @apply border-b-2 border-blue-800 rounded-t-lg bg-blue-800 text-gray-100;
   }
 
   &__icon {

@@ -1,10 +1,5 @@
 <script setup lang="ts">
-import ViewSwitch from "~/components/new/view-switch.vue";
 import { ref } from "vue";
-import GridCard from "~/components/new/grid-card.vue";
-import ListCard from "~/components/new/list-card.vue";
-import Search from "~/components/new/search.vue";
-import { useFuse } from "@vueuse/integrations/useFuse";
 
 const props = defineProps({
   data: {
@@ -31,28 +26,17 @@ const applyView = function () {
 onBeforeMount(() => {
   applyView();
 });
-
-const input = ref("");
-
-const applySearch = function (value: string) {
-  console.log("applySearch", value);
-  // input.value = value;
-  const { results } = useFuse(input.value, props.data);
-  // const results = searchContent(input.value)
-
-  console.log("results", results);
-};
 </script>
 
 <template>
   <div>
     <div class="collection__actions">
       <view-switch @view-changed="updateView"></view-switch>
-      <search @search="applySearch" />
+      <slot name="action" />
     </div>
     <div class="collection" :class="isGrid ? `grid-view` : null">
       <div v-if="usesSlot" v-for="item in data" class="collection__item">
-        <slot :is-grid="isGrid" :url="item?.url" class="slot" />
+        <slot :is-grid="isGrid" :url="item?.url"/>
       </div>
       <div v-else v-for="item in data" class="collection__item">
         <grid-card v-if="isGrid" :character="item as object"></grid-card>
@@ -64,14 +48,14 @@ const applySearch = function (value: string) {
 
 <style lang="scss" scoped>
 .collection {
-  @apply mt-24;
+  @apply mt-20;
 
   &__item {
     @apply flex flex-row justify-center py-2;
   }
 
   &__actions {
-    @apply flex flex-row justify-end gap-6;
+    @apply flex flex-row justify-center gap-6;
   }
 }
 .grid-view {

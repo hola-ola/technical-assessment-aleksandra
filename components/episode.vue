@@ -10,7 +10,7 @@ const { data: episode } = await useFetch(props.url);
 </script>
 
 <template>
-  <p>{{ episode.episode }} {{ episode.name }}</p>
+  <p v-if="episode?.episode">{{ episode.episode }} {{ episode.name }}</p>
 </template>
 
 <style scoped></style>

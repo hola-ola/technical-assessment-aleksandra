@@ -1,7 +1,3 @@
-<script setup lang="ts">
-import ImageLink from "~/components/new/image-link.vue";
-</script>
-
 <template>
   <div class="wrapper">
     <image-link

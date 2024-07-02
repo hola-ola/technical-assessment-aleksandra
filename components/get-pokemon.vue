@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import GridCard from "~/components/new/grid-card.vue";
-import ListCard from "~/components/new/list-card.vue";
 
 const props = defineProps({
   url: {
@@ -10,13 +8,16 @@ const props = defineProps({
   isGrid: {
     type: Boolean,
   },
+  loading: {
+    type: Boolean,
+  },
 });
 
 const { data: character } = await useFetch(props.url);
 </script>
 
 <template>
-  <div class="wrapper">
+  <div :class="!isGrid ? `list-wrapper` : null" v-if="!loading">
     <grid-card
       v-if="isGrid"
       :character="character as object"
@@ -28,10 +29,14 @@ const { data: character } = await useFetch(props.url);
       :image="character?.sprites.front_default"
     />
   </div>
+  <div v-else>
+    Loading...
+    <UProgress animation="carousel" />
+  </div>
 </template>
 
 <style lang="scss" scoped>
-.wrapper {
+.list-wrapper {
   @apply w-screen flex justify-center;
 }
 </style>

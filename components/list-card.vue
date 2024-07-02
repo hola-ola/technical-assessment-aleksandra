@@ -1,16 +1,20 @@
 <script setup lang="ts">
+import type { Character } from "~/types"
+
 const props = defineProps({
-  character: Object,
+  character: {} as Character,
   image: String,
 });
 
 const navigate = async function () {
   if (props.character?.id) {
     const route = useRoute();
-    await navigateTo({
-      path: `/${route.name}/${props.character.id}`,
-      params: { id: props.character.id },
-    });
+    if (route.name === "rick-and-morty") {
+      await navigateTo({
+        path: `/${route.name}/${props.character.id}`,
+        params: { id: props.character.id },
+      });
+    }
   }
 };
 </script>
@@ -55,7 +59,7 @@ const navigate = async function () {
   }
 
   &__image {
-    @apply h-48 border-l-2 border-l-pink-700;
+    @apply h-48 border-l-2 border-l-pink-700 bg-gray-100 rounded-r-xl;
   }
 
   h2 {
