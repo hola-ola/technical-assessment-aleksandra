@@ -34,11 +34,15 @@ const navigate = async function () {
     </div>
     <div class="card__image">
       <NuxtImg
+          v-if="image || character?.image"
         :src="image || character?.image"
         width="256"
         placeholder
         placeholder-class="image"
       />
+      <div v-else class="card__image__test">
+        No picture available
+      </div>
     </div>
   </div>
 </template>
@@ -46,10 +50,10 @@ const navigate = async function () {
 <style lang="scss" scoped>
 .card {
   @apply border-2 border-blue-800 flex flex-col justify-between;
-  @apply max-h-96 bg-gray-100 hover:cursor-pointer rounded-xl;
+  @apply h-fit bg-gray-100 hover:cursor-pointer rounded-xl;
 
   &__header {
-    @apply p-3 flex items-center justify-center;
+    @apply p-3 flex items-center justify-center text-white h-16;
     @apply border-b-2 border-blue-800 rounded-t-lg bg-blue-800 text-gray-100;
   }
 
@@ -66,7 +70,11 @@ const navigate = async function () {
   }
 
   &__image {
-    @apply border-t-2 border-t-blue-800;
+    @apply border-t-2 border-t-blue-800 h-4/5;
+
+    &__test {
+      @apply h-48 flex flex-row justify-center items-center;
+    }
   }
 
   h2 {
