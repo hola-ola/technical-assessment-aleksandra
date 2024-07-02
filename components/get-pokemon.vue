@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 const props = defineProps({
   url: {
     type: String,
@@ -28,10 +27,6 @@ const { data: character } = await useFetch(props.url);
       :character="character as object"
       :image="character?.sprites.front_default"
     />
-  </div>
-  <div v-else>
-    Loading...
-    <UProgress animation="carousel" />
   </div>
 </template>
 

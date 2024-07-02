@@ -36,7 +36,7 @@ onBeforeMount(() => {
     </div>
     <div class="collection" :class="isGrid ? `grid-view` : null">
       <div v-if="usesSlot" v-for="item in data" class="collection__item">
-        <slot :is-grid="isGrid" :url="item?.url"/>
+        <slot :is-grid="isGrid" :url="item?.url" />
       </div>
       <div v-else v-for="item in data" class="collection__item">
         <grid-card v-if="isGrid" :character="item as object"></grid-card>

@@ -1,17 +1,17 @@
 <script setup lang="ts">
 const goRandom = async function () {
   const { data: all } = await useFetch(
-      `https://rickandmortyapi.com/api/character/`,
+    `https://rickandmortyapi.com/api/character/`,
   );
 
   const total = all?.value.info?.count;
-  const id =Math.floor(Math.random() * total);
+  const id = Math.floor(Math.random() * total);
 
   await navigateTo({
     path: `/rick-and-morty/${id}`,
     params: { id: id },
   });
-}
+};
 </script>
 
 <template>

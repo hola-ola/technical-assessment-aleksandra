@@ -1,5 +1,4 @@
-<<<<<<< HEAD:pages/index.vue
-=======
+<<<<<<< HEAD:pages/index.vue =======
 <script setup lang="ts">
 import ImageLink from "~/docs/components/new/image-link.vue";
 </script>

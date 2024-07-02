@@ -23,25 +23,28 @@ const emit = defineEmits(["search"]);
 async function onSubmit(event: FormSubmitEvent<Schema>) {
   emit("search", event.data.name);
 }
-
 </script>
 
 <template>
-<div class="search">
-  <UForm :schema="schema" :state="state" class="search__form" @submit="onSubmit">
-    <UFormGroup name="name">
-      <UInput v-model="state.name" type="name">
-      </UInput>
-    </UFormGroup>
-    <UButton type="submit" class="search__button"> Search! </UButton>
-  </UForm>
-  <p v-if="error">{{ error }}</p>
-</div>
+  <div class="search">
+    <UForm
+      :schema="schema"
+      :state="state"
+      class="search__form"
+      @submit="onSubmit"
+    >
+      <UFormGroup name="name">
+        <UInput v-model="state.name" type="name"> </UInput>
+      </UFormGroup>
+      <UButton type="submit" class="search__button"> Search! </UButton>
+    </UForm>
+    <p v-if="error">{{ error }}</p>
+  </div>
 </template>
 
 <style scoped lang="scss">
 .search {
-@apply flex flex-col mt-8 gap-2 justify-start;
+  @apply flex flex-col mt-8 gap-2 justify-start;
 
   p {
     @apply text-red-600 text-sm;

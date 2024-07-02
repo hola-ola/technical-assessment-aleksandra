@@ -47,11 +47,11 @@ const applySearch = async function (value: string) {
   <page title="Rick and Morty">
     <collection v-if="data?.results" :data="data.results" :key="searchTerm">
       <template v-slot:action>
-        <search @search="applySearch" :error="error"/>
+        <search @search="applySearch" :error="error" />
       </template>
     </collection>
     <pagination
-        v-if="data?.info?.count > 20"
+      v-if="data?.info?.count > 20"
       :page-count="20"
       :total="data?.info?.count"
       :current-page="currentPage"

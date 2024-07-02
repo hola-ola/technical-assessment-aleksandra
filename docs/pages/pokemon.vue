@@ -31,7 +31,7 @@ const updateOffset = async function (value: number) {
 <template>
   <page title="Pokemon">
     <collection
-        :key="Number(offset)"
+      :key="Number(offset)"
       v-slot="slotProps"
       v-if="characters?.results"
       :data="characters?.results"
@@ -39,7 +39,7 @@ const updateOffset = async function (value: number) {
     >
       <div>
         <get-pokemon
-            :loading="loading"
+          :loading="loading"
           v-if="slotProps.url"
           :url="slotProps.url as string"
           :is-grid="!!slotProps.isGrid"

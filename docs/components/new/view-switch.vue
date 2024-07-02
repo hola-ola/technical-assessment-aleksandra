@@ -23,11 +23,7 @@ onBeforeMount(() => {
 <template>
   <div class="toggle">
     <p>List</p>
-    <UToggle
-      v-model="isGrid"
-      size="lg"
-      @change="updateDefaultView"
-    />
+    <UToggle v-model="isGrid" size="lg" @change="updateDefaultView" />
     <p>Grid</p>
   </div>
 </template>
